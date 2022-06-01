@@ -12,8 +12,8 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'prettier'
-  ] ,
+    'prettier',
+  ],
   plugins: ['import', '@typescript-eslint'],
   settings: {
     next: {
@@ -23,33 +23,56 @@ module.exports = {
         'packages/eslint-config-acme/',
         'packages/tsconfig/',
         'packages/ui/',
-      ]
+      ],
     },
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
+      '@typescript-eslint/parser': [
+        '.ts',
+        '.tsx',
+      ],
     },
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        project: ['tsconfig.json', 'packages/tsconfig.json'],
+        extensions: [
+          '.js',
+          '.jsx',
+          '.ts',
+          '.tsx',
+        ],
+        project: [
+          'tsconfig.json',
+          'packages/tsconfig.json',
+        ],
       },
       typescript: {
         alwaysTryTypes: true,
-        project: ['tsconfig.json', 'packages/tsconfig.json'],
-      }
+        project: [
+          'tsconfig.json',
+          'packages/tsconfig.json',
+        ],
+      },
     },
   },
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'import/prefer-default-export': 'off',
+    'react/require-default-props': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
   overrides: [
     {
       env: {
         jest: true,
       },
-      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
-      extends: ['plugin:testing-library/react', 'plugin:jest/recommended'],
-    }
+      files: [
+        '**/__tests__/**/*.[jt]s?(x)',
+        '**/?(*.)+(spec|test).[jt]s?(x)',
+      ],
+      extends: [
+        'plugin:testing-library/react',
+        'plugin:jest/recommended',
+      ],
+    },
   ],
   ignorePatterns: [
     '**/*.js',
@@ -57,6 +80,6 @@ module.exports = {
     'node_modules',
     '.turbo',
     '.next',
-    'public'
-  ]
+    'public',
+  ],
 }
